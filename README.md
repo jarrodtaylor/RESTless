@@ -50,4 +50,25 @@ RunLoop.current.run()
 
 ## Or as a standalone CLI
 
-> TBD (soon, waiting on Apple, there's a bunch of code signing involved)
+Download and run the latest [installer](https://github.com/jarrodtaylor/RESTless/releases/download/v1.0.0/restless-1.0.0.pkg).
+
+> It'll put the `restless` CLI executable in `usr/local/bin`.
+
+You can now run the `restless` command:
+
+```shell
+~ % restless --help
+OVERVIEW: Static web server for MacOS.
+
+Visit https://github.com/jarrodtaylor/RESTless to learn more.
+
+USAGE: restless [<source>] [--port <port>]
+
+ARGUMENTS:
+  <source>                Path to the directory to serve. (default: .)
+
+OPTIONS:
+  -p, --port <port>       Port for the localhost server. (default: 80)
+  --version               Show the version.
+  -h, --help              Show help information.
+```
