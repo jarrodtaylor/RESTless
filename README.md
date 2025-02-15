@@ -46,7 +46,7 @@ Give it a path and port to start the server and a callback to see requests:
 ```swift
 import RESTless
 
-RESTless(path: "/public", port: 8080) {(request, response, error) in
+RESTless(path: "public/", port: 8080) {(request, response, error) in
   var message: [String] = [""]
 
   if let request  {message.append(request.path)}
