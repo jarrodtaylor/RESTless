@@ -8,9 +8,9 @@ struct RESTlessCLI: ParsableCommand {
     commandName: "restless", version: "1.0.0")
 
   @Argument(
-    help: "Relative path of the directory to serve.",
+          help: "Relative path of the directory to serve.",
     completion: .directory,
-    transform: {URL(string: $0, relativeTo: URL.currentDirectory())!})
+     transform: {URL(string: $0, relativeTo: URL.currentDirectory())!})
   var path: URL
 
   @Option(
@@ -24,11 +24,13 @@ struct RESTlessCLI: ParsableCommand {
   }
 
   mutating func run() {
-    RESTless(path: path.path(), port: port) { (request, response, error) in
+    RESTless(path: path.path(), port: port) {(request, response, error) in
       var message: [String] = [""]
-      if let request {message.append(request.path)}
+
+      if let request  {message.append(request.path)}
       if let response {message.append("\(response.status.rawValue) \(response.status)")}
-      if let error {message.append("Error: \(error)")}
+      if let error    {message.append("Error: \(error)")}
+
       print(message.joined(separator: " ").trimmingCharacters(in: .whitespaces))
     }
 
