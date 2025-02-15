@@ -24,6 +24,17 @@ struct RESTlessCLI: ParsableCommand {
   }
 
   mutating func run() {
-    print(path, port)
+    RESTless(path: path.path(), port: port) { (request, response, error) in
+      var message: [String] = [""]
+      if let request {message.append(request.path)}
+      if let response {message.append("\(response.status.rawValue) \(response.status)")}
+      if let error {message.append("Error: \(error)")}
+      print(message.joined(separator: " ").trimmingCharacters(in: .whitespaces))
+    }
+
+    print("Serving \(path.path()) at http://localhost:\(port)")
+    print("^c to stop")
+
+    RunLoop.current.run()
   }
 }

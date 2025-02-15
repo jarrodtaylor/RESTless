@@ -1,24 +1,24 @@
 import Foundation
 import UniformTypeIdentifiers
 
-struct Response {
-  let body:     Data
-  let headers: [Header: String]
-  let status:   Status
+public struct Response {
+  public let body:     Data
+  public let headers: [Header: String]
+  public let status:   Status
 
-  let httpVersion = "HTTP/1.1"
+  public let httpVersion = "HTTP/1.1"
 
-  enum Header: String {
+  public enum Header: String {
     case contentLength = "Content-Length"
     case contentType   = "Content-Type"
   }
 
-  enum Status: Int, CustomStringConvertible {
+  public enum Status: Int, CustomStringConvertible {
     case ok       = 200
     case notFound = 404
     case teapot   = 418
 
-    var description: String {
+    public var description: String {
       switch self {
         case .ok:       return "OK"
         case .notFound: return "Not Found"
@@ -27,7 +27,7 @@ struct Response {
     }
   }
 
-  var data: Data {
+  public var data: Data {
     var headerLines = ["\(httpVersion) \(status.rawValue) \(status)"]
     headerLines.append(contentsOf:headers.map({"\($0.key.rawValue): \($0.value)"}))
     headerLines.append(""); headerLines.append("")

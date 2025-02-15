@@ -1,10 +1,10 @@
 import Foundation
 
-struct Request {
-  let headers:    [String: String]
-  let httpVersion: String
-  let method:      String
-  let path:        String
+public struct Request {
+  public let headers:    [String: String]
+  public let httpVersion: String
+  public let method:      String
+  public let path:        String
 
   init?(_ data: Data) {
     let request = String(data: data, encoding: .utf8)!
