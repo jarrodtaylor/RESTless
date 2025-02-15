@@ -63,4 +63,4 @@ print("^c to stop")
 RunLoop.current.run()
 ```
 
-[installer]: ...
+[installer]: https://github.com/jarrodtaylor/RESTless/releases/download/v1.0.0/restless-1.0.0.pkg
