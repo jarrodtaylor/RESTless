@@ -10,7 +10,7 @@
     },
     "run" : {
       "enabled" : true,
-      "script" : "swift run RESTlessCLI tmp"
+      "script" : "VERSION=`swift run RESTlessCLI --version`\nswift build --configuration release --arch arm64 --arch x86_64\ncodesign --sign \"$DEVELOPER_ID_APPLICATION\" --options runtime --timestamp .build\/apple\/Products\/Release\/RESTlessCLI\nmkdir .build\/pkgroot\ncp .build\/apple\/Products\/Release\/RESTlessCLI .build\/pkgroot\/restless\npkgbuild --root .build\/pkgroot --identifier sh.restless.cli --version $VERSION --install-location \/usr\/local\/bin\/ restless.pkg\nproductbuild --package restless.pkg --identifier sh.restless.cli --version $VERSION --sign \"$DEVELOPER_ID_INSTALLER\" Releases\/restless-$VERSION.pkg\nrm restless.pkg\nxcrun notarytool submit Releases\/restless-$VERSION.pkg --keychain-profile \"Developer\" --wait\nxcrun stapler staple Releases\/restless-$VERSION.pkg"
     }
   },
   "openLogOnRun" : "start"
