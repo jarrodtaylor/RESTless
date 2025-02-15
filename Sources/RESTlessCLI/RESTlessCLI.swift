@@ -31,11 +31,11 @@ struct RESTlessCLI: ParsableCommand {
       if let response {message.append("\(response.status.rawValue) \(response.status)")}
       if let error    {message.append("Error: \(error)")}
 
-      print(message.joined(separator: " ").trimmingCharacters(in: .whitespaces))
+      log(message.joined(separator: " ").trimmingCharacters(in: .whitespaces))
     }
 
-    print("Serving \(path.path()) at http://localhost:\(port)")
-    print("^c to stop")
+    log("Serving \(path.path()) at http://localhost:\(port)")
+    log("^c to stop")
 
     RunLoop.current.run()
   }
