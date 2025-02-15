@@ -10,7 +10,7 @@
     },
     "run" : {
       "enabled" : true,
-      "script" : "swift run RESTlessCLI"
+      "script" : "swift run RESTlessCLI tmp"
     }
   },
   "openLogOnRun" : "start"

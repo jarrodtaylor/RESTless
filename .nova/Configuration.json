@@ -2,5 +2,8 @@
   "editor.default_syntax" : "swift",
   "workspace.art_style" : 0,
   "workspace.color" : 12,
-  "workspace.name" : "RESTless"
+  "workspace.name" : "RESTless",
+  "workspace.preview_append_paths" : false,
+  "workspace.preview_type" : "custom",
+  "workspace.preview_url" : "http:\/\/localhost:8080"
 }
